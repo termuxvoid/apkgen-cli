@@ -1,0 +1,301 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+# ------------------------------
+# CONFIGURATION
+# ------------------------------
+TEMPLATE_REPO="https://github.com/termuxvoid/apkgen-template.git"
+DEFAULT_APP_NAME="apkgentemplate"
+DEFAULT_PACKAGE="com.apkgen.template"
+VERSION="1.0.0"
+
+# ------------------------------
+# COLORS
+# ------------------------------
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
+MAGENTA='\033[0;35m'
+CYAN='\033[0;36m'
+WHITE='\033[0;37m'
+BOLD='\033[1m'
+DIM='\033[2m'
+RESET='\033[0m'
+
+# ------------------------------
+# HELPERS
+# ------------------------------
+error() {
+    echo -e "${RED}${BOLD}Error:${RESET} ${RED}$1${RESET}" >&2
+    exit 1
+}
+
+info() {
+    echo -e "${WHITE}$1${RESET}"
+}
+
+warn() {
+    echo -e "${YELLOW}${BOLD}Warning:${RESET} ${YELLOW}$1${RESET}"
+}
+
+success() {
+    echo -e "${GREEN}${BOLD}✓${RESET} $1"
+}
+
+step() {
+    echo -e "${CYAN}${BOLD}=>${RESET} $1"
+}
+
+spinner() {
+    local msg="$1"
+    shift
+    gum spin --spinner dot --title "$msg" -- "$@"
+}
+
+# Ensure gradlew is executable
+ensure_gradlew() {
+    if [ -f "gradlew" ] && [ ! -x "gradlew" ]; then
+        step "Making gradlew executable..."
+        chmod +x gradlew
+        success "gradlew is now executable"
+    elif [ ! -f "gradlew" ]; then
+        error "gradlew not found. Are you in a valid Android project?"
+    fi
+}
+
+escape_dots() { echo "$1" | sed 's/\./\\./g'; }
+
+update_text_files() {
+    local dir="$1" old="$2" new="$3"
+    local old_esc=$(escape_dots "$old")
+    local new_esc=$(escape_dots "$new")
+    find "$dir" -type f -not -path '*/\.git/*' -exec grep -Il '.' {} \; | while read -r f; do
+        sed -i "s/$old_esc/$new_esc/g" "$f"
+    done
+}
+
+restructure_dirs() {
+    local dir="$1" old="$2" new="$3"
+    local old_path="${old//.//}" new_path="${new//.//}"
+
+    for src_root in "app/src/main/java" "app/src/main/kotlin" \
+                     "app/src/androidTest/java" "app/src/androidTest/kotlin" \
+                     "app/src/test/java" "app/src/test/kotlin"; do
+        local root_dir="$dir/$src_root"
+        [ -d "$root_dir" ] || continue
+
+        local old_dir="$root_dir/$old_path"
+        local new_dir="$root_dir/$new_path"
+
+        if [ -z "$old_path" ]; then
+            find "$root_dir" -maxdepth 1 -type f \( -name "*.java" -o -name "*.kt" \) | while read -r src_file; do
+                mkdir -p "$new_dir"
+                mv "$src_file" "$new_dir/"
+            done
+        else
+            if [ -d "$old_dir" ]; then
+                mkdir -p "$new_dir"
+                find "$old_dir" -type f \( -name "*.java" -o -name "*.kt" \) | while read -r src_file; do
+                    local rel_path="${src_file#$old_dir/}"
+                    local target="$new_dir/$rel_path"
+                    mkdir -p "$(dirname "$target")"
+                    mv "$src_file" "$target"
+                done
+                rm -rf "$old_dir"
+                local p="$(dirname "$old_dir")"
+                while [ "$p" != "$root_dir" ] && [ -d "$p" ] && [ -z "$(ls -A "$p" 2>/dev/null)" ]; do
+                    rmdir "$p" 2>/dev/null
+                    p="$(dirname "$p")"
+                done
+            fi
+        fi
+    done
+}
+
+update_build_gradle() {
+    local f="$1/app/build.gradle"
+    [ -f "$f" ] || return
+    local old_esc=$(escape_dots "$2")
+    local new_esc=$(escape_dots "$3")
+    sed -i "s/applicationId \"$old_esc\"/applicationId \"$new_esc\"/" "$f"
+    sed -i "s/namespace \"$old_esc\"/namespace \"$new_esc\"/" "$f"
+}
+
+update_manifest() {
+    local f="$1/app/src/main/AndroidManifest.xml"
+    [ -f "$f" ] || return
+    local old_esc=$(escape_dots "$2")
+    local new_esc=$(escape_dots "$3")
+    sed -i "s/package=\"$old_esc\"/package=\"$new_esc\"/" "$f"
+}
+
+update_app_name() {
+    local f="$1/app/src/main/res/values/strings.xml"
+    [ -f "$f" ] && sed -i "s/$2/$3/g" "$f"
+}
+
+# ------------------------------
+# BANNER
+# ------------------------------
+show_banner() {
+	clear
+        gum style \
+            --foreground 63 --border double --border-foreground 63 \
+            --padding "1 2" --margin "1 2" \
+            "APKGen v${VERSION}" \
+            "Android APK Generator CLI"
+}
+
+# ------------------------------
+# COMMANDS
+# ------------------------------
+create_app() {
+    local app_dir="$1"
+    [ -z "$app_dir" ] && error "Usage: apkgen create <app-directory>"
+
+    if [ -e "$app_dir" ]; then
+        error "A project with this name already exists"
+    fi
+
+    echo
+    step "Cloning template repository..."
+    spinner "Cloning template repository..." git clone --quiet "$TEMPLATE_REPO" "$app_dir"
+    if [ $? -ne 0 ]; then
+        error "Clone failed"
+    fi
+
+    step "Removing .git directory..."
+    rm -rf "$app_dir/.git"
+    success ".git directory removed"
+
+    cd "$app_dir" || error "Cannot enter $app_dir"
+
+    echo
+    echo -e "${BOLD}Configuration${RESET}"
+    echo -e "${DIM}Please provide the following information:${RESET}"
+    echo
+
+    echo -e "${CYAN}App name${RESET} (e.g., MyApp)"
+    new_name=$(gum input \
+        --placeholder "MyApp" \
+        --prompt "> " \
+        --prompt.foreground 39 \
+        --placeholder.foreground 241 \
+        --value "$DEFAULT_APP_NAME" \
+        --width 60)
+
+    echo
+    echo -e "${CYAN}Package name${RESET} (e.g., com.example.myapp)"
+    new_pkg=$(gum input \
+        --placeholder "com.example.myapp" \
+        --prompt "> " \
+        --prompt.foreground 39 \
+        --placeholder.foreground 241 \
+        --value "$DEFAULT_PACKAGE" \
+        --width 60)
+
+    echo
+    step "Restructuring project..."
+    update_app_name "$(pwd)" "$DEFAULT_APP_NAME" "$new_name"
+    update_manifest "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+    update_build_gradle "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+    update_text_files "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+    restructure_dirs "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+
+    echo
+    success "Project created successfully"
+    echo
+
+    echo -e "${BOLD}Next steps:${RESET}"
+    echo -e "  ${DIM}1.${RESET} ${WHITE}cd $app_dir${RESET}"
+    echo -e "  ${DIM}2.${RESET} ${WHITE}apkgen build debug${RESET}"
+    echo
+}
+
+build_apk() {
+    local build_type="$1"
+    ensure_gradlew
+
+    if [ "$build_type" = "debug" ]; then
+        step "Building debug APK..."
+        ./gradlew assembleDebug --no-daemon
+        if [ $? -ne 0 ]; then
+            error "Build failed"
+        fi
+        local apk=$(find app/build/outputs/apk -name "*debug*.apk" | head -1)
+        [ -z "$apk" ] && error "APK not found"
+        success "Build completed"
+        echo -e "  ${DIM}Output:${RESET} ${WHITE}$(realpath "$apk")${RESET}"
+    elif [ "$build_type" = "release" ]; then
+        step "Building release APK (unsigned)..."
+        ./gradlew assembleRelease --no-daemon
+        if [ $? -ne 0 ]; then
+            error "Build failed"
+        fi
+        local apk=$(find app/build/outputs/apk -name "*release*.apk" | head -1)
+        [ -z "$apk" ] && error "APK not found"
+        warn "APK is unsigned. Sign it before installing."
+        echo -e "  ${DIM}Output:${RESET} ${WHITE}$(realpath "$apk")${RESET}"
+    else
+        error "Invalid build type. Use 'debug' or 'release'"
+    fi
+}
+
+clean_project() {
+    ensure_gradlew
+    step "Cleaning project..."
+    rm -rf build
+    ./gradlew clean --no-daemon
+    if [ $? -ne 0 ]; then
+        error "Clean failed"
+    fi
+    success "Build artifacts removed"
+}
+
+show_help() {
+    show_banner
+    echo -e "${WHITE}A CLI tool to quickly generate Android APKs from a template.${RESET}"
+    echo
+
+    echo -e "${BOLD}USAGE:${RESET}"
+    echo -e "  ${WHITE}apkgen${RESET} <command> [arguments]"
+    echo
+
+    echo -e "${BOLD}COMMANDS:${RESET}"
+    echo -e "  ${CYAN}create${RESET} <app-directory>    Clone template and customize app"
+    echo -e "  ${CYAN}build${RESET}  debug              Build debug APK (run from project dir)"
+    echo -e "  ${CYAN}build${RESET}  release            Build unsigned release APK"
+    echo -e "  ${CYAN}clean${RESET}                     Clean build artifacts"
+    echo -e "  ${CYAN}help${RESET}                      Show this help message"
+    echo
+
+    echo -e "${BOLD}EXAMPLES:${RESET}"
+    echo -e "  ${WHITE}apkgen create myapp${RESET}"
+    echo -e "  ${WHITE}cd myapp && apkgen build debug${RESET}"
+    echo -e "  ${WHITE}apkgen build release${RESET}"
+    echo -e "  ${WHITE}apkgen clean${RESET}"
+    echo
+}
+
+# ------------------------------
+# MAIN
+# ------------------------------
+case "$1" in
+    create) create_app "$2" ;;
+    build)
+        if [ "$2" = "debug" ] || [ "$2" = "release" ]; then
+            build_apk "$2"
+        else
+            error "Usage: apkgen build {debug|release}"
+        fi
+        ;;
+    clean) clean_project ;;
+    help|--help|-h) show_help ;;
+    *)
+        if [ -z "$1" ]; then
+            show_help
+        else
+            error "Unknown command '$1'. Run 'apkgen help' for usage."
+        fi
+        ;;
+esac
