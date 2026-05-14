@@ -3,10 +3,10 @@
 # ------------------------------
 # CONFIGURATION
 # ------------------------------
-TEMPLATE_REPO="https://github.com/termuxvoid/apkgen-template.git"
+TEMPLATE_BASE="$PREFIX/share/apkgen/templates"
 DEFAULT_APP_NAME="apkgentemplate"
 DEFAULT_PACKAGE="com.apkgen.template"
-VERSION="1.0.0"
+VERSION="1.2.4"
 
 # ------------------------------
 # COLORS
@@ -30,14 +30,6 @@ error() {
     exit 1
 }
 
-info() {
-    echo -e "${WHITE}$1${RESET}"
-}
-
-warn() {
-    echo -e "${YELLOW}${BOLD}Warning:${RESET} ${YELLOW}$1${RESET}"
-}
-
 success() {
     echo -e "${GREEN}${BOLD}✓${RESET} $1"
 }
@@ -52,19 +44,11 @@ spinner() {
     gum spin --spinner dot --title "$msg" -- "$@"
 }
 
-# Ensure gradlew is executable
-ensure_gradlew() {
-    if [ -f "gradlew" ] && [ ! -x "gradlew" ]; then
-        step "Making gradlew executable..."
-        chmod +x gradlew
-        success "gradlew is now executable"
-    elif [ ! -f "gradlew" ]; then
-        error "gradlew not found. Are you in a valid Android project?"
-    fi
-}
-
 escape_dots() { echo "$1" | sed 's/\./\\./g'; }
 
+# ------------------------------
+# TEMPLATE COPY & RENAME
+# ------------------------------
 update_text_files() {
     local dir="$1" old="$2" new="$3"
     local old_esc=$(escape_dots "$old")
@@ -112,6 +96,31 @@ restructure_dirs() {
     done
 }
 
+# Flutter‑specific updates
+update_flutter_app_name() {
+    local manifest="$1/android/app/src/main/AndroidManifest.xml"
+    [ -f "$manifest" ] || return
+    sed -i "s/android:label=\".*\"/android:label=\"$2\"/" "$manifest"
+}
+
+update_flutter_build_gradle() {
+    local build_gradle="$1/android/app/build.gradle.kts"
+    [ -f "$build_gradle" ] || return
+    local old_esc=$(escape_dots "$2")
+    local new_esc=$(escape_dots "$3")
+    sed -i "s/namespace = \"$old_esc\"/namespace = \"$new_esc\"/" "$build_gradle"
+    sed -i "s/applicationId = \"$old_esc\"/applicationId = \"$new_esc\"/" "$build_gradle"
+}
+
+update_flutter_manifest() {
+    local manifest="$1/android/app/src/main/AndroidManifest.xml"
+    [ -f "$manifest" ] || return
+    local old_esc=$(escape_dots "$2")
+    local new_esc=$(escape_dots "$3")
+    sed -i "s/package=\"$old_esc\"/package=\"$new_esc\"/" "$manifest"
+}
+
+# Native Android functions
 update_build_gradle() {
     local f="$1/app/build.gradle"
     [ -f "$f" ] || return
@@ -138,35 +147,63 @@ update_app_name() {
 # BANNER
 # ------------------------------
 show_banner() {
-	clear
-        gum style \
-            --foreground 63 --border double --border-foreground 63 \
-            --padding "1 2" --margin "1 2" \
-            "APKGen v${VERSION}" \
-            "Android APK Generator CLI"
+    clear
+    gum style \
+        --foreground 63 --border double --border-foreground 63 \
+        --padding "1 2" --margin "1 2" \
+        "APKGen v${VERSION}" \
+        "Android APK Generator CLI"
 }
 
 # ------------------------------
-# COMMANDS
+# CREATE COMMAND
 # ------------------------------
 create_app() {
-    local app_dir="$1"
-    [ -z "$app_dir" ] && error "Usage: apkgen create <app-directory>"
+    local app_dir=""
+    local use_kotlin=false
+    local use_flutter=false
 
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            --kotlin) use_kotlin=true; shift ;;
+            --flutter) use_flutter=true; shift ;;
+            *)
+                if [ -z "$app_dir" ]; then
+                    app_dir="$1"
+                    shift
+                else
+                    error "Unknown argument: $1"
+                fi
+                ;;
+        esac
+    done
+
+    [ -z "$app_dir" ] && error "Usage: apkgen create <app-directory> [--kotlin|--flutter]"
+    if [ "$use_kotlin" = true ] && [ "$use_flutter" = true ]; then
+        error "Cannot use both --kotlin and --flutter. Choose one."
+    fi
     if [ -e "$app_dir" ]; then
         error "A project with this name already exists"
     fi
 
-    echo
-    step "Cloning template repository..."
-    spinner "Cloning template repository..." git clone --quiet "$TEMPLATE_REPO" "$app_dir"
-    if [ $? -ne 0 ]; then
-        error "Clone failed"
+    local template_type="java"
+    if [ "$use_kotlin" = true ]; then
+        template_type="kotlin"
+    elif [ "$use_flutter" = true ]; then
+        template_type="flutter"
     fi
 
-    step "Removing .git directory..."
+    local template_dir="$TEMPLATE_BASE/$template_type"
+    if [ ! -d "$template_dir" ]; then
+        error "Template directory not found: $template_dir"
+    fi
+
+    echo
+    spinner "Copying $template_type template..." cp -r "$template_dir" "$app_dir"
+    if [ $? -ne 0 ]; then
+        error "Copy failed"
+    fi
     rm -rf "$app_dir/.git"
-    success ".git directory removed"
 
     cd "$app_dir" || error "Cannot enter $app_dir"
 
@@ -196,20 +233,43 @@ create_app() {
 
     echo
     step "Restructuring project..."
-    update_app_name "$(pwd)" "$DEFAULT_APP_NAME" "$new_name"
-    update_manifest "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
-    update_build_gradle "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
-    update_text_files "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
-    restructure_dirs "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+
+    if [ "$use_flutter" = true ]; then
+        update_flutter_app_name "$(pwd)" "$new_name"
+        update_flutter_manifest "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+        update_flutter_build_gradle "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+        update_text_files "$(pwd)/android" "$DEFAULT_PACKAGE" "$new_pkg"
+        restructure_dirs "$(pwd)/android" "$DEFAULT_PACKAGE" "$new_pkg"
+    else
+        update_app_name "$(pwd)" "$DEFAULT_APP_NAME" "$new_name"
+        update_manifest "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+        update_build_gradle "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+        update_text_files "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+        restructure_dirs "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+    fi
 
     echo
     success "Project created successfully"
     echo
-
     echo -e "${BOLD}Next steps:${RESET}"
     echo -e "  ${DIM}1.${RESET} ${WHITE}cd $app_dir${RESET}"
-    echo -e "  ${DIM}2.${RESET} ${WHITE}apkgen build debug${RESET}"
+    if [ "$use_flutter" = true ]; then
+        echo -e "  ${DIM}2.${RESET} ${WHITE}apkgen build flutter${RESET}"
+    else
+        echo -e "  ${DIM}2.${RESET} ${WHITE}apkgen build debug${RESET}"
+    fi
     echo
+}
+
+# ------------------------------
+# BUILD COMMANDS
+# ------------------------------
+ensure_gradlew() {
+    if [ -f "gradlew" ] && [ ! -x "gradlew" ]; then
+        chmod +x gradlew
+    elif [ ! -f "gradlew" ]; then
+        error "gradlew not found. Are you in a valid Android project?"
+    fi
 }
 
 build_apk() {
@@ -241,52 +301,89 @@ build_apk() {
     fi
 }
 
-clean_project() {
-    ensure_gradlew
-    step "Cleaning project..."
-    rm -rf build
-    ./gradlew clean --no-daemon
-    if [ $? -ne 0 ]; then
-        error "Clean failed"
+build_flutter() {
+    local build_type="$1"
+    if [ "$build_type" = "release" ]; then
+        error "Flutter release builds are not supported in Termux. Use 'apkgen build flutter' for debug build."
     fi
-    success "Build artifacts removed"
+    step "Building Flutter debug APK (split ABI)..."
+    flutter build apk --debug --split-per-abi
+    if [ $? -eq 0 ]; then
+        success "Build completed"
+    else
+        error "Build failed"
+    fi
 }
 
+clean_project() {
+    if [ -f "pubspec.yaml" ] || [ -d "lib" ] && [ -f "lib/main.dart" ]; then
+        step "Cleaning Flutter project..."
+        flutter clean
+        if [ $? -eq 0 ]; then
+            success "Flutter clean completed"
+        else
+            error "Flutter clean failed"
+        fi
+    elif [ -f "gradlew" ]; then
+        ensure_gradlew
+        step "Cleaning Android project..."
+        rm -rf build
+        ./gradlew clean --no-daemon
+        if [ $? -eq 0 ]; then
+            success "Android clean completed"
+        else
+            error "Clean failed"
+        fi
+    else
+        error "Not in a recognized project (no pubspec.yaml/lib/main.dart or gradlew)"
+    fi
+}
+
+# ------------------------------
+# HELP (compact for Termux)
+# ------------------------------
 show_help() {
     show_banner
-    echo -e "${WHITE}A CLI tool to quickly generate Android APKs from a template.${RESET}"
-    echo
-
+    echo -e "${WHITE}A CLI tool to quickly generate Android APKs from local templates.${RESET}\n"
     echo -e "${BOLD}USAGE:${RESET}"
-    echo -e "  ${WHITE}apkgen${RESET} <command> [arguments]"
-    echo
-
+    echo -e "  ${WHITE}apkgen${RESET} <command> [arguments]\n"
     echo -e "${BOLD}COMMANDS:${RESET}"
-    echo -e "  ${CYAN}create${RESET} <app-directory>    Clone template and customize app"
-    echo -e "  ${CYAN}build${RESET}  debug              Build debug APK (run from project dir)"
-    echo -e "  ${CYAN}build${RESET}  release            Build unsigned release APK"
-    echo -e "  ${CYAN}clean${RESET}                     Clean build artifacts"
-    echo -e "  ${CYAN}help${RESET}                      Show this help message"
-    echo
-
+    echo -e "  ${CYAN}create${RESET} <dir> [--kotlin|--flutter]"
+    echo -e "        Create new app (Java default)"
+    echo -e "  ${CYAN}build${RESET} debug"
+    echo -e "        Build debug APK (Android)"
+    echo -e "  ${CYAN}build${RESET} release"
+    echo -e "        Build unsigned release APK (Android)"
+    echo -e "  ${CYAN}build${RESET} flutter"
+    echo -e "        Build debug APK (Flutter, split ABI)"
+    echo -e "  ${CYAN}clean${RESET}"
+    echo -e "        Clean build artifacts"
+    echo -e "  ${CYAN}help${RESET}"
+    echo -e "        Show this help message\n"
     echo -e "${BOLD}EXAMPLES:${RESET}"
     echo -e "  ${WHITE}apkgen create myapp${RESET}"
+    echo -e "  ${WHITE}apkgen create myapp --kotlin${RESET}"
+    echo -e "  ${WHITE}apkgen create myapp --flutter${RESET}"
     echo -e "  ${WHITE}cd myapp && apkgen build debug${RESET}"
-    echo -e "  ${WHITE}apkgen build release${RESET}"
-    echo -e "  ${WHITE}apkgen clean${RESET}"
-    echo
+    echo -e "  ${WHITE}cd myflutter && apkgen build flutter${RESET}"
+    echo -e "  ${WHITE}apkgen clean${RESET}\n"
 }
 
 # ------------------------------
 # MAIN
 # ------------------------------
 case "$1" in
-    create) create_app "$2" ;;
+    create)
+        shift
+        create_app "$@"
+        ;;
     build)
         if [ "$2" = "debug" ] || [ "$2" = "release" ]; then
             build_apk "$2"
+        elif [ "$2" = "flutter" ]; then
+            build_flutter "$3"
         else
-            error "Usage: apkgen build {debug|release}"
+            error "Usage: apkgen build {debug|release|flutter}"
         fi
         ;;
     clean) clean_project ;;
