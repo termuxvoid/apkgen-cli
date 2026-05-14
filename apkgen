@@ -285,7 +285,7 @@ build_apk() {
         local apk=$(find app/build/outputs/apk -name "*debug*.apk" | head -1)
         [ -z "$apk" ] && error "APK not found"
         success "Build completed"
-        echo -e "  ${DIM}Output:${RESET} ${WHITE}$(realpath "$apk")${RESET}"
+        echo -e "  ${DIM}Output:${RESET} ${GREEN}$(realpath "$apk")${RESET}"
     elif [ "$build_type" = "release" ]; then
         step "Building release APK (unsigned)..."
         ./gradlew assembleRelease --no-daemon
@@ -295,7 +295,7 @@ build_apk() {
         local apk=$(find app/build/outputs/apk -name "*release*.apk" | head -1)
         [ -z "$apk" ] && error "APK not found"
         warn "APK is unsigned. Sign it before installing."
-        echo -e "  ${DIM}Output:${RESET} ${WHITE}$(realpath "$apk")${RESET}"
+        echo -e "  ${DIM}Output:${RESET} ${GREEN}$(realpath "$apk")${RESET}"
     else
         error "Invalid build type. Use 'debug' or 'release'"
     fi
