@@ -1,0 +1,18 @@
+                        -H/data/data/com.termux/files/home/nativecpp/app/src/main/cpp
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_SYSTEM_VERSION=21
+-DANDROID_PLATFORM=android-21
+-DANDROID_ABI=x86
+-DCMAKE_ANDROID_ARCH_ABI=x86
+-DANDROID_NDK=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865
+-DCMAKE_ANDROID_NDK=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865
+-DCMAKE_TOOLCHAIN_FILE=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/build/cmake/android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/bin/ninja
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/data/data/com.termux/files/home/nativecpp/app/build/intermediates/cxx/Debug/2b2t1p1n/obj/x86
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/data/data/com.termux/files/home/nativecpp/app/build/intermediates/cxx/Debug/2b2t1p1n/obj/x86
+-DCMAKE_BUILD_TYPE=Debug
+-B/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/x86
+-GNinja
+                        Build command args: []
+                        Version: 2

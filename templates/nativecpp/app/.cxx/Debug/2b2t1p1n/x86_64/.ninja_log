@@ -1,0 +1,4 @@
+# ninja log v6
+2	2022	1778804985377628480	CMakeFiles/myapplication.dir/native-lib.cpp.o	7c6a255fdbd95c41
+2026	2145	1778804987401628480	/data/data/com.termux/files/home/nativecpp/app/build/intermediates/cxx/Debug/2b2t1p1n/obj/x86_64/libmyapplication.so	75feb379f1fe1b00
+10	24	1778805383553628504	clean	ca480fdd95c84500

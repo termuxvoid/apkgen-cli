@@ -1,0 +1,27 @@
+{
+  "buildFiles": [
+    "/data/data/com.termux/files/home/nativecpp/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/bin/ninja",
+      "-C",
+      "/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/bin/ninja",
+    "-C",
+    "/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "myapplication::@6890427a1f51a3e7e1df": {
+      "artifactName": "myapplication",
+      "abi": "x86_64",
+      "output": "/data/data/com.termux/files/home/nativecpp/app/build/intermediates/cxx/Debug/2b2t1p1n/obj/x86_64/libmyapplication.so",
+      "runtimeFiles": []
+    }
+  }
+}

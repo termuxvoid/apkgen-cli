@@ -1,0 +1,1125 @@
+
+---
+events:
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake:12 (find_program)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_UNAME"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "uname"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/bin/"
+      - "/usr/bin/"
+      - "/usr/local/bin/"
+    found: "/data/data/com.termux/files/usr/bin/uname"
+    search_context:
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake:207 (message)"
+      - "CMakeLists.txt:12 (project)"
+    message: |
+      The target system is: Android - 1 - armv7-a
+      The host system is: Linux - 4.19.191+ - aarch64
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCCompilerId.c.in"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeCCompilerId.c.in"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:122 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:12 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang 
+      Build flags: -g;-DANDROID;-fdata-sections;-ffunction-sections;-funwind-tables;-fstack-protector-strong;-no-canonical-prefixes;-D_FORTIFY_SOURCE=2;-march=armv7-a;-mthumb;-Wformat;-Werror=format-security
+      Id flags: -c;--target=armv7-none-linux-androideabi21 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CMakeCCompilerId.o"
+      
+      The C compiler identification is Clang, found in:
+        /data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/4.1.2-dirty/CompilerIdC/CMakeCCompilerId.o
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_LINKER"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "ld.lld"
+      - "ld"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_NM"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-nm"
+      - "nm"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-nm"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJDUMP"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objdump"
+      - "objdump"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-objdump"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_OBJCOPY"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-objcopy"
+      - "objcopy"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-objcopy"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_READELF"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-readelf"
+      - "readelf"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-readelf"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_DLLTOOL"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-dlltool"
+      - "dlltool"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-dlltool"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_ADDR2LINE"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-addr2line"
+      - "addr2line"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-addr2line"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_TAPI"
+    description: "Path to a program."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "tapi"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    searched_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/tapi"
+      - "/data/data/com.termux/files/usr/bin/tapi"
+      - "/usr/lib/arm-linux-androideabi/21/bin/tapi"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/tapi"
+      - "/usr/lib/arm-linux-androideabi/21/tapi"
+    found: false
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/Compiler/Clang-FindBinUtils.cmake:26 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_AR"
+    description: "LLVM archiver"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ar-21.0"
+      - "llvm-ar-21"
+      - "llvm-ar21"
+      - "llvm-ar"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    searched_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar-21.0"
+      - "/data/data/com.termux/files/usr/bin/llvm-ar-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ar-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ar-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ar-21.0"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar-21"
+      - "/data/data/com.termux/files/usr/bin/llvm-ar-21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ar-21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ar-21"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ar-21"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar21"
+      - "/data/data/com.termux/files/usr/bin/llvm-ar21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ar21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ar21"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ar21"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/Compiler/Clang-FindBinUtils.cmake:38 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_RANLIB"
+    description: "Generate index for LLVM archive"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ranlib-21.0"
+      - "llvm-ranlib-21"
+      - "llvm-ranlib21"
+      - "llvm-ranlib"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    searched_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib-21.0"
+      - "/data/data/com.termux/files/usr/bin/llvm-ranlib-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ranlib-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ranlib-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ranlib-21.0"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib-21"
+      - "/data/data/com.termux/files/usr/bin/llvm-ranlib-21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ranlib-21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ranlib-21"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ranlib-21"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib21"
+      - "/data/data/com.termux/files/usr/bin/llvm-ranlib21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ranlib21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ranlib21"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ranlib21"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/Compiler/Clang-FindBinUtils.cmake:50 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake:201 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_C_COMPILER_CLANG_SCAN_DEPS"
+    description: "`clang-scan-deps` dependency scanner"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "clang-scan-deps-21.0"
+      - "clang-scan-deps-21"
+      - "clang-scan-deps21"
+      - "clang-scan-deps"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    searched_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps-21.0"
+      - "/data/data/com.termux/files/usr/bin/clang-scan-deps-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/bin/clang-scan-deps-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/clang-scan-deps-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/clang-scan-deps-21.0"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps-21"
+      - "/data/data/com.termux/files/usr/bin/clang-scan-deps-21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/clang-scan-deps-21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/clang-scan-deps-21"
+      - "/usr/lib/arm-linux-androideabi/21/clang-scan-deps-21"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps21"
+      - "/data/data/com.termux/files/usr/bin/clang-scan-deps21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/clang-scan-deps21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/clang-scan-deps21"
+      - "/usr/lib/arm-linux-androideabi/21/clang-scan-deps21"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:462 (find_file)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:500 (CMAKE_DETERMINE_COMPILER_ID_WRITE)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:8 (CMAKE_DETERMINE_COMPILER_ID_BUILD)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "file"
+    variable: "src_in"
+    description: "Path to a file."
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: true
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "CMakeCXXCompilerId.cpp.in"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeCXXCompilerId.cpp.in"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:125 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:12 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang++ 
+      Build flags: -g;-DANDROID;-fdata-sections;-ffunction-sections;-funwind-tables;-fstack-protector-strong;-no-canonical-prefixes;-D_FORTIFY_SOURCE=2;-march=armv7-a;-mthumb;-Wformat;-Werror=format-security
+      Id flags: -c;--target=armv7-none-linux-androideabi21 
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CMakeCXXCompilerId.o"
+      
+      The CXX compiler identification is Clang, found in:
+        /data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/4.1.2-dirty/CompilerIdCXX/CMakeCXXCompilerId.o
+      
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/Compiler/Clang-FindBinUtils.cmake:26 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_AR"
+    description: "LLVM archiver"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ar-21.0"
+      - "llvm-ar-21"
+      - "llvm-ar21"
+      - "llvm-ar"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    searched_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar-21.0"
+      - "/data/data/com.termux/files/usr/bin/llvm-ar-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ar-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ar-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ar-21.0"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar-21"
+      - "/data/data/com.termux/files/usr/bin/llvm-ar-21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ar-21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ar-21"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ar-21"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar21"
+      - "/data/data/com.termux/files/usr/bin/llvm-ar21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ar21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ar21"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ar21"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ar"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/Compiler/Clang-FindBinUtils.cmake:38 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_RANLIB"
+    description: "Generate index for LLVM archive"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "llvm-ranlib-21.0"
+      - "llvm-ranlib-21"
+      - "llvm-ranlib21"
+      - "llvm-ranlib"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    searched_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib-21.0"
+      - "/data/data/com.termux/files/usr/bin/llvm-ranlib-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ranlib-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ranlib-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ranlib-21.0"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib-21"
+      - "/data/data/com.termux/files/usr/bin/llvm-ranlib-21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ranlib-21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ranlib-21"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ranlib-21"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib21"
+      - "/data/data/com.termux/files/usr/bin/llvm-ranlib21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/llvm-ranlib21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/llvm-ranlib21"
+      - "/usr/lib/arm-linux-androideabi/21/llvm-ranlib21"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/llvm-ranlib"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "find-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/Compiler/Clang-FindBinUtils.cmake:50 (find_program)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake:207 (include)"
+      - "CMakeLists.txt:12 (project)"
+    mode: "program"
+    variable: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS"
+    description: "`clang-scan-deps` dependency scanner"
+    settings:
+      SearchFramework: "NEVER"
+      SearchAppBundle: "NEVER"
+      CMAKE_FIND_USE_CMAKE_PATH: false
+      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
+      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
+      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
+      CMAKE_FIND_USE_INSTALL_PREFIX: true
+    names:
+      - "clang-scan-deps-21.0"
+      - "clang-scan-deps-21"
+      - "clang-scan-deps21"
+      - "clang-scan-deps"
+    candidate_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/"
+      - "/data/data/com.termux/files/usr/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/bin/"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/"
+      - "/usr/lib/arm-linux-androideabi/21/"
+    searched_directories:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps-21.0"
+      - "/data/data/com.termux/files/usr/bin/clang-scan-deps-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/bin/clang-scan-deps-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/clang-scan-deps-21.0"
+      - "/usr/lib/arm-linux-androideabi/21/clang-scan-deps-21.0"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps-21"
+      - "/data/data/com.termux/files/usr/bin/clang-scan-deps-21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/clang-scan-deps-21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/clang-scan-deps-21"
+      - "/usr/lib/arm-linux-androideabi/21/clang-scan-deps-21"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps21"
+      - "/data/data/com.termux/files/usr/bin/clang-scan-deps21"
+      - "/usr/lib/arm-linux-androideabi/21/bin/clang-scan-deps21"
+      - "/usr/lib/arm-linux-androideabi/21/sbin/clang-scan-deps21"
+      - "/usr/lib/arm-linux-androideabi/21/clang-scan-deps21"
+    found: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps"
+    search_context:
+      CMAKE_PREFIX_PATH:
+        - "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64"
+      ENV{PATH}:
+        - "/data/data/com.termux/files/usr/bin"
+      CMAKE_SYSTEM_PREFIX_PATH:
+        - "/usr/lib/arm-linux-androideabi/21"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+      CMAKE_FIND_ROOT_PATH: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865"
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:12 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-ECFIei"
+      binary: "/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-ECFIei"
+    cmakeVariables:
+      ANDROID_ABI: "armeabi-v7a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_ARM_NEON: "TRUE"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-21"
+      ANDROID_STL: "c++_static"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps"
+      CMAKE_CXX_COMPILER_TARGET: "armv7-none-linux-androideabi21"
+      CMAKE_C_COMPILER_TARGET: "armv7-none-linux-androideabi21"
+      CMAKE_C_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat "
+      CMAKE_C_FLAGS_DEBUG: "-fno-limit-debug-info "
+      CMAKE_EXE_LINKER_FLAGS: "-static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-ECFIei'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/bin/ninja -v cmTC_472cd
+        [1/2] /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=armv7-none-linux-androideabi21 --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat   -fPIE   -v -MD -MT CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o -c /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeCCompilerABI.c
+        Android clang version 21.0.0 (https://github.com/HomuHomu833/llvm-custom 62d18923e0836fef09de95de5a774f56b2434d1a)
+        Target: armv7-none-linux-android21
+        Thread model: posix
+        InstalledDir: /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin
+         (in-process)
+         "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang" -cc1 -triple thumbv7-none-linux-android21 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=1 -target-cpu generic -target-feature +soft-float-abi -target-feature +vfp2 -target-feature +vfp2sp -target-feature +vfp3 -target-feature +vfp3d16 -target-feature +vfp3d16sp -target-feature +vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature +fp64 -target-feature +d32 -target-feature +neon -target-feature -sha2 -target-feature -aes -target-feature -fp16fml -target-abi aapcs-linux -mfloat-abi soft -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -fdebug-compilation-dir=/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-ECFIei -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-ECFIei -resource-dir /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21 -dependency-file CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -internal-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include -internal-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/include -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include -Wformat -ferror-limit 19 -femulated-tls -stack-protector 2 -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o -x c /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 21.0.0 based upon LLVM 21.0.0 default target aarch64-linux-android25
+        ignoring nonexistent directory "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include"
+        ignoring nonexistent directory "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include
+         /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi
+         /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include
+        End of search list.
+        [2/2] : && /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=armv7-none-linux-androideabi21 --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments   -v CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o -o cmTC_472cd   && :
+        Android clang version 21.0.0 (https://github.com/HomuHomu833/llvm-custom 62d18923e0836fef09de95de5a774f56b2434d1a)
+        Target: armv7-none-linux-android21
+        Thread model: posix
+        InstalledDir: /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin
+         "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld" --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -EL -z now -z relro -z max-page-size=4096 --no-rosegment -X --hash-style=both --eh-frame-hdr -m armelf_linux_eabi -pie -dynamic-linker /system/bin/linker -o cmTC_472cd /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtbegin_dynamic.o -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21 -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/../lib -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib --build-id=sha1 --no-rosegment --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a -l:libunwind.a -ldl /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtend_android.o
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:12 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include]
+          add: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi]
+          add: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+        end of search list found
+        collapse include dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include]
+        collapse include dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi]
+        collapse include dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+        implicit include dirs: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:12 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-ECFIei']
+        ignore line: []
+        ignore line: [Run Build Command(s): /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/bin/ninja -v cmTC_472cd]
+        ignore line: [[1/2] /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=armv7-none-linux-androideabi21 --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat   -fPIE   -v -MD -MT CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o -c /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeCCompilerABI.c]
+        ignore line: [Android clang version 21.0.0 (https://github.com/HomuHomu833/llvm-custom 62d18923e0836fef09de95de5a774f56b2434d1a)]
+        ignore line: [Target: armv7-none-linux-android21]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin]
+        ignore line: [ (in-process)]
+        ignore line: [ "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang" -cc1 -triple thumbv7-none-linux-android21 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=1 -target-cpu generic -target-feature +soft-float-abi -target-feature +vfp2 -target-feature +vfp2sp -target-feature +vfp3 -target-feature +vfp3d16 -target-feature +vfp3d16sp -target-feature +vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature +fp64 -target-feature +d32 -target-feature +neon -target-feature -sha2 -target-feature -aes -target-feature -fp16fml -target-abi aapcs-linux -mfloat-abi soft -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -fdebug-compilation-dir=/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-ECFIei -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-ECFIei -resource-dir /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21 -dependency-file CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -internal-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include -internal-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/include -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include -Wformat -ferror-limit 19 -femulated-tls -stack-protector 2 -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o -x c /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang -cc1 version 21.0.0 based upon LLVM 21.0.0 default target aarch64-linux-android25]
+        ignore line: [ignoring nonexistent directory "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include"]
+        ignore line: [ignoring nonexistent directory "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include]
+        ignore line: [ /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi]
+        ignore line: [ /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+        ignore line: [End of search list.]
+        ignore line: [[2/2] : && /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang --target=armv7-none-linux-androideabi21 --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -static-libstdc++ -Wl --build-id=sha1 -Wl --no-rosegment -Wl --no-undefined-version -Wl --fatal-warnings -Wl --no-undefined -Qunused-arguments   -v CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o -o cmTC_472cd   && :]
+        ignore line: [Android clang version 21.0.0 (https://github.com/HomuHomu833/llvm-custom 62d18923e0836fef09de95de5a774f56b2434d1a)]
+        ignore line: [Target: armv7-none-linux-android21]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin]
+        link line: [ "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld" --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -EL -z now -z relro -z max-page-size=4096 --no-rosegment -X --hash-style=both --eh-frame-hdr -m armelf_linux_eabi -pie -dynamic-linker /system/bin/linker -o cmTC_472cd /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtbegin_dynamic.o -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21 -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/../lib -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib --build-id=sha1 --no-rosegment --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a -l:libunwind.a -ldl /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtend_android.o]
+          arg [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld] ==> ignore
+          arg [--sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot] ==> ignore
+          arg [-EL] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-zmax-page-size=4096] ==> ignore
+          arg [--no-rosegment] ==> ignore
+          arg [-X] ==> ignore
+          arg [--hash-style=both] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [armelf_linux_eabi] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/system/bin/linker] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_472cd] ==> ignore
+          arg [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtbegin_dynamic.o] ==> obj [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtbegin_dynamic.o]
+          arg [-L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm] ==> dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm]
+          arg [-L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21] ==> dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21]
+          arg [-L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi] ==> dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi]
+          arg [-L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/../lib] ==> dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/../lib]
+          arg [-L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib] ==> dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib]
+          arg [--build-id=sha1] ==> ignore
+          arg [--no-rosegment] ==> ignore
+          arg [--no-undefined-version] ==> ignore
+          arg [--fatal-warnings] ==> ignore
+          arg [--no-undefined] ==> ignore
+          arg [CMakeFiles/cmTC_472cd.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a] ==> lib [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [-lc] ==> lib [c]
+          arg [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a] ==> lib [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtend_android.o] ==> obj [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtend_android.o]
+        linker tool for 'C': /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld
+        remove lib [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a]
+        remove lib [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a]
+        collapse library dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm]
+        collapse library dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21]
+        collapse library dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi]
+        collapse library dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/../lib] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib]
+        collapse library dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib]
+        implicit libs: [-l:libunwind.a;dl;c;-l:libunwind.a;dl]
+        implicit objs: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtbegin_dynamic.o;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtend_android.o]
+        implicit dirs: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:12 (project)"
+    message: |
+      Running the C compiler's linker: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld" "-v"
+      LLD 21.0.0 (https://github.com/HomuHomu833/llvm-custom 62d18923e0836fef09de95de5a774f56b2434d1a) (compatible with GNU linkers)
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:12 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-kJPCNF"
+      binary: "/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-kJPCNF"
+    cmakeVariables:
+      ANDROID_ABI: "armeabi-v7a"
+      ANDROID_ARM_MODE: "thumb"
+      ANDROID_ARM_NEON: "TRUE"
+      ANDROID_PIE: "TRUE"
+      ANDROID_PLATFORM: "android-21"
+      ANDROID_STL: "c++_static"
+      ANDROID_TOOLCHAIN: "clang"
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang-scan-deps"
+      CMAKE_CXX_COMPILER_TARGET: "armv7-none-linux-androideabi21"
+      CMAKE_CXX_FLAGS: "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat  "
+      CMAKE_CXX_FLAGS_DEBUG: "-fno-limit-debug-info "
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_C_COMPILER_TARGET: "armv7-none-linux-androideabi21"
+      CMAKE_EXE_LINKER_FLAGS: "-static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments  "
+      CMAKE_POSITION_INDEPENDENT_CODE: "TRUE"
+      CMAKE_SYSROOT: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: '/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-kJPCNF'
+        
+        Run Build Command(s): /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/bin/ninja -v cmTC_9e62d
+        [1/2] /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang++ --target=armv7-none-linux-androideabi21 --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat    -fPIE   -v -MD -MT CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -c /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp
+        Android clang version 21.0.0 (https://github.com/HomuHomu833/llvm-custom 62d18923e0836fef09de95de5a774f56b2434d1a)
+        Target: armv7-none-linux-android21
+        Thread model: posix
+        InstalledDir: /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin
+         (in-process)
+         "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang++" -cc1 -triple thumbv7-none-linux-android21 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=1 -target-cpu generic -target-feature +soft-float-abi -target-feature +vfp2 -target-feature +vfp2sp -target-feature +vfp3 -target-feature +vfp3d16 -target-feature +vfp3d16sp -target-feature +vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature +fp64 -target-feature +d32 -target-feature +neon -target-feature -sha2 -target-feature -aes -target-feature -fp16fml -target-abi aapcs-linux -mfloat-abi soft -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -fdebug-compilation-dir=/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-kJPCNF -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-kJPCNF -resource-dir /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21 -dependency-file CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -internal-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/c++/v1 -internal-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include -internal-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/include -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include -Wformat -fdeprecated-macro -ferror-limit 19 -femulated-tls -stack-protector 2 -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -x c++ /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 21.0.0 based upon LLVM 21.0.0 default target aarch64-linux-android25
+        ignoring nonexistent directory "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include"
+        ignoring nonexistent directory "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/c++/v1
+         /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include
+         /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi
+         /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include
+        End of search list.
+        [2/2] : && /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang++ --target=armv7-none-linux-androideabi21 --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments   -v CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_9e62d   && :
+        Android clang version 21.0.0 (https://github.com/HomuHomu833/llvm-custom 62d18923e0836fef09de95de5a774f56b2434d1a)
+        Target: armv7-none-linux-android21
+        Thread model: posix
+        InstalledDir: /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin
+         "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld" --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -EL -z now -z relro -z max-page-size=4096 --no-rosegment -X --hash-style=both --eh-frame-hdr -m armelf_linux_eabi -pie -dynamic-linker /system/bin/linker -o cmTC_9e62d /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtbegin_dynamic.o -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21 -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/../lib -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib --build-id=sha1 --no-rosegment --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lc++ -Bdynamic -lm /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a -l:libunwind.a -ldl /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtend_android.o
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:12 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/c++/v1]
+          add: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include]
+          add: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi]
+          add: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+        end of search list found
+        collapse include dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/c++/v1] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/c++/v1]
+        collapse include dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include]
+        collapse include dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi]
+        collapse include dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+        implicit include dirs: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/c++/v1;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:12 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
+        ignore line: [Change Dir: '/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-kJPCNF']
+        ignore line: []
+        ignore line: [Run Build Command(s): /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/bin/ninja -v cmTC_9e62d]
+        ignore line: [[1/2] /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang++ --target=armv7-none-linux-androideabi21 --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot   -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat    -fPIE   -v -MD -MT CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -c /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [Android clang version 21.0.0 (https://github.com/HomuHomu833/llvm-custom 62d18923e0836fef09de95de5a774f56b2434d1a)]
+        ignore line: [Target: armv7-none-linux-android21]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin]
+        ignore line: [ (in-process)]
+        ignore line: [ "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang++" -cc1 -triple thumbv7-none-linux-android21 -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=1 -target-cpu generic -target-feature +soft-float-abi -target-feature +vfp2 -target-feature +vfp2sp -target-feature +vfp3 -target-feature +vfp3d16 -target-feature +vfp3d16sp -target-feature +vfp3sp -target-feature -fp16 -target-feature -vfp4 -target-feature -vfp4d16 -target-feature -vfp4d16sp -target-feature -vfp4sp -target-feature -fp-armv8 -target-feature -fp-armv8d16 -target-feature -fp-armv8d16sp -target-feature -fp-armv8sp -target-feature -fullfp16 -target-feature +fp64 -target-feature +d32 -target-feature +neon -target-feature -sha2 -target-feature -aes -target-feature -fp16fml -target-abi aapcs-linux -mfloat-abi soft -debug-info-kind=constructor -dwarf-version=4 -debugger-tuning=gdb -fdebug-compilation-dir=/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-kJPCNF -v -ffunction-sections -fdata-sections -fcoverage-compilation-dir=/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/CMakeScratch/TryCompile-kJPCNF -resource-dir /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21 -dependency-file CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -D ANDROID -D _FORTIFY_SOURCE=2 -isysroot /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -internal-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/c++/v1 -internal-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include -internal-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/include -internal-externc-isystem /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include -Wformat -fdeprecated-macro -ferror-limit 19 -femulated-tls -stack-protector 2 -fno-signed-char -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fcxx-exceptions -fexceptions -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -x c++ /data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 21.0.0 based upon LLVM 21.0.0 default target aarch64-linux-android25]
+        ignore line: [ignoring nonexistent directory "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/local/include"]
+        ignore line: [ignoring nonexistent directory "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/c++/v1]
+        ignore line: [ /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/include]
+        ignore line: [ /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include/arm-linux-androideabi]
+        ignore line: [ /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/include]
+        ignore line: [End of search list.]
+        ignore line: [[2/2] : && /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang++ --target=armv7-none-linux-androideabi21 --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -static-libstdc++ -Wl --build-id=sha1 -Wl --no-rosegment -Wl --no-undefined-version -Wl --fatal-warnings -Wl --no-undefined -Qunused-arguments   -v CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_9e62d   && :]
+        ignore line: [Android clang version 21.0.0 (https://github.com/HomuHomu833/llvm-custom 62d18923e0836fef09de95de5a774f56b2434d1a)]
+        ignore line: [Target: armv7-none-linux-android21]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin]
+        link line: [ "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld" --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -EL -z now -z relro -z max-page-size=4096 --no-rosegment -X --hash-style=both --eh-frame-hdr -m armelf_linux_eabi -pie -dynamic-linker /system/bin/linker -o cmTC_9e62d /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtbegin_dynamic.o -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21 -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/../lib -L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib --build-id=sha1 --no-rosegment --no-undefined-version --fatal-warnings --no-undefined CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o -Bstatic -lc++ -Bdynamic -lm /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a -l:libunwind.a -ldl -lc /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a -l:libunwind.a -ldl /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtend_android.o]
+          arg [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld] ==> ignore
+          arg [--sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot] ==> ignore
+          arg [-EL] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-zmax-page-size=4096] ==> ignore
+          arg [--no-rosegment] ==> ignore
+          arg [-X] ==> ignore
+          arg [--hash-style=both] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [armelf_linux_eabi] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/system/bin/linker] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_9e62d] ==> ignore
+          arg [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtbegin_dynamic.o] ==> obj [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtbegin_dynamic.o]
+          arg [-L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm] ==> dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm]
+          arg [-L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21] ==> dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21]
+          arg [-L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi] ==> dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi]
+          arg [-L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/../lib] ==> dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/../lib]
+          arg [-L/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib] ==> dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib]
+          arg [--build-id=sha1] ==> ignore
+          arg [--no-rosegment] ==> ignore
+          arg [--no-undefined-version] ==> ignore
+          arg [--fatal-warnings] ==> ignore
+          arg [--no-undefined] ==> ignore
+          arg [CMakeFiles/cmTC_9e62d.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-Bstatic] ==> search static
+          arg [-lc++] ==> lib [c++]
+          arg [-Bdynamic] ==> search dynamic
+          arg [-lm] ==> lib [m]
+          arg [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a] ==> lib [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [-lc] ==> lib [c]
+          arg [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a] ==> lib [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a]
+          arg [-l:libunwind.a] ==> lib [-l:libunwind.a]
+          arg [-ldl] ==> lib [dl]
+          arg [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtend_android.o] ==> obj [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtend_android.o]
+        linker tool for 'CXX': /data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld
+        remove lib [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a]
+        remove lib [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/libclang_rt.builtins-arm-android.a]
+        collapse library dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm]
+        collapse library dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21]
+        collapse library dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi]
+        collapse library dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/../lib] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib]
+        collapse library dir [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib] ==> [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib]
+        implicit libs: [c++;m;-l:libunwind.a;dl;c;-l:libunwind.a;dl]
+        implicit objs: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtbegin_dynamic.o;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21/crtend_android.o]
+        implicit dirs: [/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/lib/clang/21/lib/linux/arm;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi/21;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib/arm-linux-androideabi;/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
+      - "/data/data/com.termux/files/usr/opt/android-sdk/cmake/4.1.2/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:12 (project)"
+    message: |
+      Running the CXX compiler's linker: "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/ld.lld" "-v"
+      LLD 21.0.0 (https://github.com/HomuHomu833/llvm-custom 62d18923e0836fef09de95de5a774f56b2434d1a) (compatible with GNU linkers)
+...

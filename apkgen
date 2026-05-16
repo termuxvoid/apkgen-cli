@@ -6,7 +6,7 @@
 TEMPLATE_BASE="$PREFIX/share/apkgen/templates"
 DEFAULT_APP_NAME="apkgentemplate"
 DEFAULT_PACKAGE="com.apkgen.template"
-VERSION="1.2.4"
+VERSION="1.3.0"
 
 # ------------------------------
 # COLORS
@@ -45,6 +45,11 @@ spinner() {
 }
 
 escape_dots() { echo "$1" | sed 's/\./\\./g'; }
+
+# Convert package name (com.example.app) to JNI-style (com_example_app)
+pkg_to_jni() {
+    echo "$1" | tr '.' '_'
+}
 
 # ------------------------------
 # TEMPLATE COPY & RENAME
@@ -94,6 +99,17 @@ restructure_dirs() {
             fi
         fi
     done
+}
+
+# Native C++ specific: update JNI function name in native-lib.cpp
+update_native_cpp() {
+    local cpp_file="$1/app/src/main/cpp/native-lib.cpp"
+    [ -f "$cpp_file" ] || return
+    local old_pkg="$2"
+    local new_pkg="$3"
+    local old_jni="Java_$(pkg_to_jni "$old_pkg")_MainActivity_stringFromJNI"
+    local new_jni="Java_$(pkg_to_jni "$new_pkg")_MainActivity_stringFromJNI"
+    sed -i "s/$old_jni/$new_jni/g" "$cpp_file"
 }
 
 # Flutter‑specific updates
@@ -162,11 +178,13 @@ create_app() {
     local app_dir=""
     local use_kotlin=false
     local use_flutter=false
+    local use_nativecpp=false
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
             --kotlin) use_kotlin=true; shift ;;
             --flutter) use_flutter=true; shift ;;
+            --nativecpp) use_nativecpp=true; shift ;;
             *)
                 if [ -z "$app_dir" ]; then
                     app_dir="$1"
@@ -178,10 +196,16 @@ create_app() {
         esac
     done
 
-    [ -z "$app_dir" ] && error "Usage: apkgen create <app-directory> [--kotlin|--flutter]"
-    if [ "$use_kotlin" = true ] && [ "$use_flutter" = true ]; then
-        error "Cannot use both --kotlin and --flutter. Choose one."
+    [ -z "$app_dir" ] && error "Usage: apkgen create <app-directory> [--kotlin|--flutter|--nativecpp]"
+
+    local type_count=0
+    [ "$use_kotlin" = true ] && ((type_count++))
+    [ "$use_flutter" = true ] && ((type_count++))
+    [ "$use_nativecpp" = true ] && ((type_count++))
+    if [ $type_count -gt 1 ]; then
+        error "Cannot use multiple --flags. Choose exactly one of --kotlin, --flutter, or --nativecpp."
     fi
+
     if [ -e "$app_dir" ]; then
         error "A project with this name already exists"
     fi
@@ -191,6 +215,8 @@ create_app() {
         template_type="kotlin"
     elif [ "$use_flutter" = true ]; then
         template_type="flutter"
+    elif [ "$use_nativecpp" = true ]; then
+        template_type="nativecpp"
     fi
 
     local template_dir="$TEMPLATE_BASE/$template_type"
@@ -203,7 +229,8 @@ create_app() {
     if [ $? -ne 0 ]; then
         error "Copy failed"
     fi
-    rm -rf "$app_dir/.git"
+
+    # .git is deliberately NOT removed – it stays as is from the template
 
     cd "$app_dir" || error "Cannot enter $app_dir"
 
@@ -241,11 +268,17 @@ create_app() {
         update_text_files "$(pwd)/android" "$DEFAULT_PACKAGE" "$new_pkg"
         restructure_dirs "$(pwd)/android" "$DEFAULT_PACKAGE" "$new_pkg"
     else
+        # Native Android (java, kotlin, nativecpp)
         update_app_name "$(pwd)" "$DEFAULT_APP_NAME" "$new_name"
         update_manifest "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
         update_build_gradle "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
         update_text_files "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
         restructure_dirs "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+
+        # Extra step for nativecpp: update JNI function name
+        if [ "$use_nativecpp" = true ]; then
+            update_native_cpp "$(pwd)" "$DEFAULT_PACKAGE" "$new_pkg"
+        fi
     fi
 
     echo
@@ -294,7 +327,7 @@ build_apk() {
         fi
         local apk=$(find app/build/outputs/apk -name "*release*.apk" | head -1)
         [ -z "$apk" ] && error "APK not found"
-        warn "APK is unsigned. Sign it before installing."
+        echo -e "${YELLOW}Warning: APK is unsigned. Sign it before installing.${RESET}"
         echo -e "  ${DIM}Output:${RESET} ${GREEN}$(realpath "$apk")${RESET}"
     else
         error "Invalid build type. Use 'debug' or 'release'"
@@ -340,7 +373,7 @@ clean_project() {
 }
 
 # ------------------------------
-# HELP (compact for Termux)
+# HELP
 # ------------------------------
 show_help() {
     show_banner
@@ -348,8 +381,8 @@ show_help() {
     echo -e "${BOLD}USAGE:${RESET}"
     echo -e "  ${WHITE}apkgen${RESET} <command> [arguments]\n"
     echo -e "${BOLD}COMMANDS:${RESET}"
-    echo -e "  ${CYAN}create${RESET} <dir> [--kotlin|--flutter]"
-    echo -e "        Create new app (Java default)"
+    echo -e "  ${CYAN}create${RESET} <dir> [--kotlin|--flutter|--nativecpp]"
+    echo -e "        Create new app (Java default, or use a flag for Kotlin/Flutter/C++ native)"
     echo -e "  ${CYAN}build${RESET} debug"
     echo -e "        Build debug APK (Android)"
     echo -e "  ${CYAN}build${RESET} release"
@@ -364,6 +397,7 @@ show_help() {
     echo -e "  ${WHITE}apkgen create myapp${RESET}"
     echo -e "  ${WHITE}apkgen create myapp --kotlin${RESET}"
     echo -e "  ${WHITE}apkgen create myapp --flutter${RESET}"
+    echo -e "  ${WHITE}apkgen create myapp --nativecpp${RESET}"
     echo -e "  ${WHITE}cd myapp && apkgen build debug${RESET}"
     echo -e "  ${WHITE}cd myflutter && apkgen build flutter${RESET}"
     echo -e "  ${WHITE}apkgen clean${RESET}\n"

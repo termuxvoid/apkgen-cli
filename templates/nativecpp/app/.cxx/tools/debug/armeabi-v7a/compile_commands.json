@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a",
+  "command": "/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/bin/clang++ --target=armv7-none-linux-androideabi21 --sysroot=/data/data/com.termux/files/usr/opt/android-sdk/ndk/29.0.14206865/toolchains/llvm/prebuilt/linux-arm64/sysroot -Dmyapplication_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles/myapplication.dir/native-lib.cpp.o -c /data/data/com.termux/files/home/nativecpp/app/src/main/cpp/native-lib.cpp",
+  "file": "/data/data/com.termux/files/home/nativecpp/app/src/main/cpp/native-lib.cpp",
+  "output": "/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/armeabi-v7a/CMakeFiles/myapplication.dir/native-lib.cpp.o"
+}
+]
