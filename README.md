@@ -30,7 +30,7 @@ apkgen build debug
 
 ## Commands
 
-### `create <directory> [--kotlin|--flutter]`
+### `create <directory> [--kotlin|--flutter|--nativecpp]`
 
 Clones the project template into a new directory and prompts for app name and package name. Defaults to Java if no flag is specified.
 
@@ -43,6 +43,9 @@ apkgen create myapp --kotlin
 
 # Flutter project
 apkgen create myapp --flutter
+
+# Native C++ project
+apkgen create myapp --nativecpp
 ```
 
 ### `build debug`
@@ -92,6 +95,7 @@ apkgen help
 | `create <dir>` | Scaffold Java project (default) |
 | `create <dir> --kotlin` | Scaffold Kotlin project |
 | `create <dir> --flutter` | Scaffold Flutter project |
+| `create <dir> --nativecpp` | Scaffold Native C++ project |
 | `build debug` | Build debug-signed APK (Android) |
 | `build release` | Build unsigned release APK (Android) |
 | `build flutter` | Build debug APK (Flutter, split ABI) |
@@ -100,7 +104,7 @@ apkgen help
 
 ## Output
 
-### Android (Java/Kotlin)
+### Android (Java/Kotlin/Native C++)
 
 Built APKs are placed in:
 
@@ -109,10 +113,6 @@ app/build/outputs/
 ├── myapp-debug.apk
 └── myapp-release-unsigned.apk
 ```
-
-### Flutter
-
-Built APKs (split by ABI) are placed in the Flutter build output directory.
 
 ## Examples
 
@@ -128,6 +128,10 @@ cd myapp && apkgen build debug
 # Create and build a Flutter app
 apkgen create myflutter --flutter
 cd myflutter && apkgen build flutter
+
+# Create a Native C++ app
+apkgen create myapp --nativecpp
+cd myapp && apkgen build debug
 
 # Clean build artifacts
 apkgen clean
