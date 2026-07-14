@@ -6,7 +6,7 @@
 TEMPLATE_BASE="$PREFIX/share/apkgen/templates"
 DEFAULT_APP_NAME="apkgentemplate"
 DEFAULT_PACKAGE="com.apkgen.template"
-VERSION="1.3.1"
+VERSION="1.4.0"
 
 # ------------------------------
 # COLORS

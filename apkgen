@@ -123,6 +123,7 @@ show_help() {
     echo -e "  ${GREEN}create${RESET} ${YELLOW}<dir>${RESET}                     Create a new Java project (default)"
     echo -e "  ${GREEN}create${RESET} ${YELLOW}<dir> --kotlin${RESET}            Create a new Kotlin project"
     echo -e "  ${GREEN}create${RESET} ${YELLOW}<dir> --flutter${RESET}           Create a new Flutter project"
+    echo -e "  ${GREEN}create${RESET} ${YELLOW}<dir> --nativec${RESET}           Create a new Native C project"
     echo -e "  ${GREEN}create${RESET} ${YELLOW}<dir> --nativecpp${RESET}         Create a new Native C++ project"
     echo
     echo -e "  ${GREEN}build debug${RESET}               Build debug APK (Gradle)"
@@ -163,6 +164,7 @@ case "$1" in
             case "$arg" in
                 --kotlin)     template_type="kotlin" ;;
                 --flutter)    template_type="flutter" ;;
+                --nativec)    template_type="nativec" ;;
                 --nativecpp)  template_type="nativecpp" ;;
                 -*)           error "Unknown option: $arg" ;;
                 *)            app_dir="$arg" ;;
@@ -170,7 +172,7 @@ case "$1" in
         done
 
         if [ -z "$app_dir" ]; then
-            error "Usage: apkgen create <dir> [--kotlin|--flutter|--nativecpp]"
+            error "Usage: apkgen create <dir> [--kotlin|--flutter|--nativec|--nativecpp]"
         fi
 
         if [ -d "$app_dir" ]; then
@@ -181,6 +183,7 @@ case "$1" in
             java)      source "$SCRIPT_DIR/lib/create_java.sh"; create_java "$app_dir" ;;
             kotlin)    source "$SCRIPT_DIR/lib/create_kotlin.sh"; create_kotlin "$app_dir" ;;
             flutter)   source "$SCRIPT_DIR/lib/create_flutter.sh"; create_flutter "$app_dir" ;;
+            nativec)   source "$SCRIPT_DIR/lib/create_nativec.sh"; create_nativec "$app_dir" ;;
             nativecpp) source "$SCRIPT_DIR/lib/create_nativecpp.sh"; create_nativecpp "$app_dir" ;;
         esac
         ;;
