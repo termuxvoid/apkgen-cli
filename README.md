@@ -1,5 +1,8 @@
 <div align="center">
   <img alt="apkgen-cli" height="180" src="lib/apkgen.png">
+  
+  ---
+  <p><b>⚡ A CLI tool to quickly generate Android APKs from local templates</b></p>
 
   <div>
     <a href="https://github.com/TermuxVoid/apkgen-cli/stargazers">
