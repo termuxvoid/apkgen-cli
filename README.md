@@ -1,17 +1,15 @@
 <div align="center">
   <img alt="apkgen-cli" height="180" src="lib/apkgen.png">
-  <h1>apkgen-cli</h1>
-  <p><b>⚡ A CLI tool to quickly generate Android APKs from local templates</b></p>
 
   <div>
-    <a href="https://github.com/TermuxVoid/repo/stargazers">
-      <img src="https://img.shields.io/github/stars/TermuxVoid/repo?style=for-the-badge&logo=github&color=ffd700&labelColor=0d1117" alt="GitHub Stars">
+    <a href="https://github.com/TermuxVoid/apkgen-cli/stargazers">
+      <img src="https://img.shields.io/github/stars/TermuxVoid/apkgen-cli?style=for-the-badge&logo=github&color=ffd700&labelColor=0d1117" alt="GitHub Stars">
     </a>
-    <a href="https://github.com/TermuxVoid/repo/blob/main/LICENSE">
+    <a href="https://github.com/TermuxVoid/apkgen-cli/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/License-BSD_3--Clause-blue?style=for-the-badge&logo=opensourceinitiative" alt="License">
     </a>
-    <a href="https://github.com/TermuxVoid/repo/issues">
-      <img src="https://img.shields.io/github/issues/TermuxVoid/repo?style=for-the-badge&logo=github&color=orange&labelColor=0d1117" alt="GitHub Issues">
+    <a href="https://github.com/TermuxVoid/apkgen-cli/issues">
+      <img src="https://img.shields.io/github/issues/TermuxVoid/apkgen-cli?style=for-the-badge&logo=github&color=orange&labelColor=0d1117" alt="GitHub Issues">
     </a>
   </div>
 </div>
