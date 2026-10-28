@@ -8,8 +8,8 @@ plugins {
 android {
     namespace = "com.apkgen.template"
     compileSdk = flutter.compileSdkVersion
-    buildToolsVersion = "36.1.0"
-    ndkVersion = "29.0.14206865"
+    buildToolsVersion = "37.0.0"
+    ndkVersion = "30.0.16248370"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17

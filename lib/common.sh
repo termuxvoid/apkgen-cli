@@ -6,7 +6,7 @@
 TEMPLATE_BASE="$PREFIX/share/apkgen/templates"
 DEFAULT_APP_NAME="apkgentemplate"
 DEFAULT_PACKAGE="com.apkgen.template"
-VERSION="1.4.0"
+VERSION="1.4.1"
 
 # ------------------------------
 # COLORS
@@ -45,6 +45,10 @@ spinner() {
 }
 
 escape_dots() { echo "$1" | sed 's/\./\\./g'; }
+
+configure_flutter() {
+    flutter config --android-sdk "$PREFIX/opt/android-sdk" >/dev/null
+}
 
 # Convert package name (com.example.app) to JNI-style (com_example_app)
 pkg_to_jni() {

@@ -1,3 +1,0 @@
-/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/x86/CMakeFiles/myapplication.dir
-/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/x86/CMakeFiles/edit_cache.dir
-/data/data/com.termux/files/home/nativecpp/app/.cxx/Debug/2b2t1p1n/x86/CMakeFiles/rebuild_cache.dir

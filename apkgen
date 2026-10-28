@@ -78,6 +78,7 @@ build_flutter() {
     fi
 
     step "Building Flutter APK (debug)..."
+    configure_flutter
     flutter build apk --debug --split-per-abi
 
     local apk_path
@@ -97,6 +98,7 @@ clean_project() {
     echo
     if [ -f "pubspec.yaml" ] && [ -f "lib/main.dart" ]; then
         step "Detected Flutter project"
+        configure_flutter
         flutter clean
         success "Flutter project cleaned"
     elif [ -f "gradlew" ]; then

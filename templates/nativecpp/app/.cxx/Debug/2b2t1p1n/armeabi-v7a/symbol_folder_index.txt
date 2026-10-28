@@ -1,1 +1,0 @@
-/data/data/com.termux/files/home/nativecpp/app/build/intermediates/cxx/Debug/2b2t1p1n/obj/armeabi-v7a

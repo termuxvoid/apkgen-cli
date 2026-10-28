@@ -6,6 +6,8 @@ plugins {
 android {
     namespace 'com.apkgen.template'
     compileSdk 36
+    buildToolsVersion = "37.0.0"
+    ndkVersion = "30.0.16248370"
 
     defaultConfig {
         applicationId 'com.apkgen.template'
@@ -13,8 +15,6 @@ android {
         targetSdk 34
         versionCode 1
         versionName '1.0'
-        buildToolsVersion = "36.1.0"
-	ndkVersion = "29.0.14206865"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
