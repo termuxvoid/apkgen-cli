@@ -57,6 +57,11 @@ apt install apkgen-cli -y
 ## ⚡ Quick Start
 
 ```bash
+# Open the interactive menu
+apkgen
+
+# Or run commands directly:
+
 # Scaffold a new Java project
 apkgen create myapp
 
@@ -66,12 +71,20 @@ cd myapp
 # Build a debug APK
 apkgen build debug
 
-# Output: app/build/outputs/myapp-debug.apk
+# Output: app/build/outputs/apk/debug/app-debug.apk
 ```
 
 ---
 
 ## 🔧 Commands
+
+### `apkgen`
+
+Launches an interactive menu for creating, building and cleaning projects. If there is no TTY (or `gum` is unavailable), it prints help instead, so scripts never get stuck in a prompt.
+
+```bash
+apkgen
+```
 
 ### `create <directory> [--kotlin|--flutter|--nativec|--nativecpp]`
 
@@ -96,7 +109,7 @@ apkgen create myapp --nativec
 
 ### `build debug`
 
-Compiles a debug APK with debug signing enabled (Android).
+Compiles a debug APK. The project type is auto-detected: Flutter projects get split ABI outputs, everything else uses Gradle.
 
 ```bash
 apkgen build debug
@@ -104,7 +117,7 @@ apkgen build debug
 
 ### `build release`
 
-Compiles an unsigned release APK (Android). Sign manually with `apksigner` or `jarsigner`.
+Compiles a release APK. Flutter projects produce a universal APK signed with the debug key (testing only); Gradle projects produce an unsigned APK you sign manually with `apksigner` or `jarsigner`.
 
 ```bash
 apkgen build release
@@ -112,10 +125,11 @@ apkgen build release
 
 ### `build flutter`
 
-Builds a debug APK for Flutter projects with split ABI outputs.
+Legacy alias for Flutter projects. Defaults to debug; accepts `debug` or `release`.
 
 ```bash
 apkgen build flutter
+apkgen build flutter release
 ```
 
 ### `clean`
@@ -124,6 +138,14 @@ Removes all build artifacts from the project directory.
 
 ```bash
 apkgen clean
+```
+
+### `version`
+
+Prints the apkgen version.
+
+```bash
+apkgen version
 ```
 
 ### `help`
@@ -142,15 +164,17 @@ apkgen help
 
 | Command | Description |
 | :--- | :--- |
+| `apkgen` | Open the interactive menu |
 | `create <dir>` | Scaffold Java project (default) |
 | `create <dir> --kotlin` | Scaffold Kotlin project |
 | `create <dir> --flutter` | Scaffold Flutter project |
 | `create <dir> --nativecpp` | Scaffold Native C++ project |
 | `create <dir> --nativec` | Scaffold Native C project |
-| `build debug` | Build debug-signed APK (Android) |
-| `build release` | Build unsigned release APK (Android) |
-| `build flutter` | Build debug APK (Flutter, split ABI) |
+| `build debug` | Build debug APK (auto-detects Flutter/Gradle) |
+| `build release` | Build release APK (auto-detects Flutter/Gradle) |
+| `build flutter` | Legacy Flutter alias (debug by default) |
 | `clean` | Remove build outputs |
+| `version` | Show the apkgen version |
 | `help` | Show help text |
 
 </div>
@@ -164,9 +188,17 @@ apkgen help
 Built APKs are placed in:
 
 ```
-app/build/outputs/
-├── myapp-debug.apk
-└── myapp-release-unsigned.apk
+app/build/outputs/apk/
+├── debug/app-debug.apk
+└── release/app-release-unsigned.apk
+```
+
+### Flutter
+
+```
+build/app/outputs/flutter-apk/
+├── app-<abi>-debug.apk   # one per ABI (debug)
+└── app-release.apk       # universal (release, debug-signed)
 ```
 
 ---
@@ -184,7 +216,8 @@ cd myapp && apkgen build debug
 
 # Create and build a Flutter app
 apkgen create myflutter --flutter
-cd myflutter && apkgen build flutter
+cd myflutter && apkgen build debug
+cd myflutter && apkgen build release
 
 # Create a Native C++ app
 apkgen create myapp --nativecpp

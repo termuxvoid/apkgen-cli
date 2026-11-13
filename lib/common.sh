@@ -46,6 +46,10 @@ spinner() {
 
 escape_dots() { echo "$1" | sed 's/\./\\./g'; }
 
+is_flutter_project() {
+    [ -f "pubspec.yaml" ] && [ -f "lib/main.dart" ]
+}
+
 configure_flutter() {
     flutter config --android-sdk "$PREFIX/opt/android-sdk" >/dev/null
 }

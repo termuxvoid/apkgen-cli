@@ -1,20 +1,40 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 SCRIPT_DIR="$(cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")" && pwd)"
+SELF="$(readlink -f "${BASH_SOURCE[0]}")"
 source "$SCRIPT_DIR/lib/common.sh"
 
 # ------------------------------
 # BANNER
 # ------------------------------
+LOGO='      ⠘⣄  ⣀⣀⣀  ⣠⠃      
+      ⣠⣼⣾⣿⣿⣿⣿⣿⣿⣧⣄      
+    ⢀⣼⣿⠋⢻⣿⣿⣿⣿⣿⠋⢹⣿⣧⡀    
+    ⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧    
+ ⣀⡀ ⣉⣉⣉⣉⣉⣉⣉⣉⣉⣉⣉⣉⣉⣉⣉ ⢀⣀ 
+⢸⣿⣿ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⣿⣿⡇
+⢸⣿⣿ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⣿⣿⡇
+⢸⣿⣿ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⣿⣿⡇
+⢸⣿⣿ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⣿⣿⡇
+⠘⠛⠛ ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿ ⠛⠛⠃
+    ⠉⠛⢻⣿⣿⣿⠛⠛⠛⣿⣿⣿⡟⠛⠋    
+      ⢸⣿⣿⣿   ⣿⣿⣿⡇      
+       ⠛⠛⠋   ⠙⠛⠛⠁      '
+
 show_banner() {
-    clear 2>/dev/null
+    local cols pad
+    cols=$(tput cols 2>/dev/null || echo 80)
+    pad=$(( (cols - 23) / 2 ))
+    [ "$pad" -lt 0 ] && pad=0
+
     gum style \
-        --border double \
-        --border-foreground 39 \
-        --padding "1 3" \
+        --foreground 39 \
+        --margin "1 0 0 $pad" \
+        "$LOGO"
+    gum style \
         --align center \
-        --width 50 \
-        --margin "1 2" \
+        --width "$cols" \
+        --margin "0 0 1 0" \
         "$(gum style --foreground 39 --bold 'apkgen') $(gum style --foreground 241 "v${VERSION}")" \
         "$(gum style --italic --foreground 241 'Generate & Build Android APKs')"
 }
@@ -40,9 +60,9 @@ build_apk() {
 
     echo
     if [ "$build_type" = "release" ]; then
-        ./gradlew assembleRelease --no-daemon
+        ./gradlew assembleRelease --no-daemon || error "Gradle build failed."
     else
-        ./gradlew assembleDebug --no-daemon
+        ./gradlew assembleDebug --no-daemon || error "Gradle build failed."
     fi
 
     local apk_path
@@ -53,7 +73,7 @@ build_apk() {
     fi
 
     echo
-    if [ -n "$apk_path" ]; then
+    if [ -n "$apk_path" ] && [ -s "$apk_path" ]; then
         success "Build complete!"
         echo -e "  ${BOLD}APK:${RESET} ${WHITE}$(pwd)/$apk_path${RESET}"
         if [ "$build_type" = "release" ]; then
@@ -66,28 +86,37 @@ build_apk() {
 }
 
 build_flutter() {
-    local build_type="$1"
+    local build_type="${1:-debug}"
     echo
 
-    if [ ! -f "pubspec.yaml" ]; then
-        error "No pubspec.yaml found. Are you in a Flutter project directory?"
+    if ! is_flutter_project; then
+        error "No Flutter project found (pubspec.yaml + lib/main.dart). Are you in a Flutter project directory?"
     fi
 
-    if [ "$build_type" = "release" ]; then
-        error "Release builds are not supported on Termux. Use 'apkgen build flutter' for debug builds."
-    fi
+    case "$build_type" in
+        debug|release) ;;
+        *) error "Usage: apkgen build [debug|release]" ;;
+    esac
 
-    step "Building Flutter APK (debug)..."
     configure_flutter
-    flutter build apk --debug --split-per-abi
+    if [ "$build_type" = "release" ]; then
+        step "Building Flutter APK (release)..."
+        flutter build apk --release || error "Flutter build failed."
+    else
+        step "Building Flutter APK (debug)..."
+        flutter build apk --debug --split-per-abi || error "Flutter build failed."
+    fi
 
     local apk_path
-    apk_path=$(find build/app/outputs -name "*.apk" 2>/dev/null | head -1)
+    apk_path=$(find build/app/outputs -name "*-${build_type}.apk" 2>/dev/null | head -1)
 
     echo
-    if [ -n "$apk_path" ]; then
+    if [ -n "$apk_path" ] && [ -s "$apk_path" ]; then
         success "Build complete!"
         echo -e "  ${BOLD}APK:${RESET} ${WHITE}$(pwd)/$apk_path${RESET}"
+        if [ "$build_type" = "release" ]; then
+            echo -e "  ${YELLOW}Warning: Release APK uses the debug signing key. Not for Play Store distribution.${RESET}"
+        fi
     else
         error "Build output not found"
     fi
@@ -96,7 +125,7 @@ build_flutter() {
 
 clean_project() {
     echo
-    if [ -f "pubspec.yaml" ] && [ -f "lib/main.dart" ]; then
+    if is_flutter_project; then
         step "Detected Flutter project"
         configure_flutter
         flutter clean
@@ -113,12 +142,62 @@ clean_project() {
 }
 
 # ------------------------------
+# INTERACTIVE MENU
+# ------------------------------
+create_wizard() {
+    local type flag="" dir args=()
+    type=$(gum choose --header "Project type" "Java" "Kotlin" "Flutter" "Native C" "Native C++") || return
+    case "$type" in
+        Java)        ;;
+        Kotlin)      flag="--kotlin" ;;
+        Flutter)     flag="--flutter" ;;
+        "Native C")  flag="--nativec" ;;
+        "Native C++") flag="--nativecpp" ;;
+    esac
+
+    dir=$(gum input --header "Project directory" --placeholder "myapp" --prompt "> ") || return
+    [ -n "$dir" ] || return
+
+    [ -n "$flag" ] && args+=("$flag")
+    "$SELF" create "$dir" "${args[@]}"
+}
+
+show_menu() {
+    while :; do
+        clear
+        show_banner
+        echo
+        local choice
+        choice=$(gum choose --header "What do you want to do?" \
+            "Create a new project" \
+            "Build debug APK" \
+            "Build release APK" \
+            "Clean project" \
+            "Show help" \
+            "Exit") || return 0
+
+        case "$choice" in
+            "Create a new project") create_wizard ;;
+            "Build debug APK")      "$SELF" build debug ;;
+            "Build release APK")    "$SELF" build release ;;
+            "Clean project")        "$SELF" clean ;;
+            "Show help")            "$SELF" help ;;
+            "Exit")                 return 0 ;;
+        esac
+
+        echo
+        read -r -p "Press Enter to return to the menu..." _ || return 0
+    done
+}
+
+# ------------------------------
 # HELP
 # ------------------------------
 show_help() {
     show_banner
     echo
     echo -e "${BOLD}USAGE${RESET}"
+    echo -e "  ${WHITE}apkgen${RESET}                        Interactive menu"
     echo -e "  ${WHITE}apkgen${RESET} ${GREEN}<command>${RESET} ${YELLOW}[options]${RESET}"
     echo
     echo -e "${BOLD}COMMANDS${RESET}"
@@ -128,14 +207,20 @@ show_help() {
     echo -e "  ${GREEN}create${RESET} ${YELLOW}<dir> --nativec${RESET}           Create a new Native C project"
     echo -e "  ${GREEN}create${RESET} ${YELLOW}<dir> --nativecpp${RESET}         Create a new Native C++ project"
     echo
-    echo -e "  ${GREEN}build debug${RESET}               Build debug APK (Gradle)"
-    echo -e "  ${GREEN}build release${RESET}             Build release APK (Gradle, unsigned)"
-    echo -e "  ${GREEN}build flutter${RESET}             Build debug APK (Flutter)"
+    echo -e "  ${GREEN}build debug${RESET}               Build debug APK (auto-detects project)"
+    echo -e "  ${GREEN}build release${RESET}             Build release APK (auto-detects project)"
+    echo -e "  ${GREEN}build flutter${RESET}             Flutter alias: debug by default, or 'release'"
     echo
     echo -e "  ${GREEN}clean${RESET}                     Clean build artifacts"
+    echo -e "  ${GREEN}version${RESET}                   Show version"
     echo -e "  ${GREEN}help${RESET}                      Show this help message"
     echo
+    echo -e "  ${DIM}Flutter release APKs use the debug signing key (testing only).${RESET}"
+    echo
     echo -e "${BOLD}EXAMPLES${RESET}"
+    echo -e "  ${DIM}# Open the interactive menu${RESET}"
+    echo -e "  ${WHITE}apkgen${RESET}"
+    echo
     echo -e "  ${DIM}# Create and build a Java app${RESET}"
     echo -e "  ${WHITE}apkgen create myapp${RESET}"
     echo -e "  ${WHITE}cd myapp && apkgen build debug${RESET}"
@@ -152,7 +237,11 @@ show_help() {
 # MAIN DISPATCHER
 # ------------------------------
 if [ $# -eq 0 ]; then
-    show_help
+    if [ -t 0 ] && [ -t 1 ] && command -v gum >/dev/null 2>&1; then
+        show_menu
+    else
+        show_help
+    fi
     exit 0
 fi
 
@@ -191,19 +280,26 @@ case "$1" in
         ;;
     build)
         case "$2" in
-            debug|release)
-                build_apk "$2"
-                ;;
             flutter)
-                build_flutter "$3"
+                build_flutter "${3:-debug}"
+                ;;
+            debug|release)
+                if is_flutter_project; then
+                    build_flutter "$2"
+                else
+                    build_apk "$2"
+                fi
                 ;;
             *)
-                error "Usage: apkgen build [debug|release|flutter]"
+                error "Usage: apkgen build [debug|release]"
                 ;;
         esac
         ;;
     clean)
         clean_project
+        ;;
+    version|--version|-v)
+        echo "apkgen $VERSION"
         ;;
     help|--help|-h)
         show_help

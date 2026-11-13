@@ -133,6 +133,6 @@ create_flutter() {
     echo
     echo -e "${BOLD}Next steps:${RESET}"
     echo -e "  ${DIM}1.${RESET} ${WHITE}cd $app_dir${RESET}"
-    echo -e "  ${DIM}2.${RESET} ${WHITE}apkgen build flutter${RESET}"
+    echo -e "  ${DIM}2.${RESET} ${WHITE}apkgen build debug${RESET}"
     echo
 }
